@@ -15,7 +15,10 @@ module.exports = defineConfig({
             cacheName: 'api-cache',
             cacheableResponse: {
               statuses: [0, 200]
-            }
+            },
+            expiration: {
+              maxAgeSeconds: 600
+            },
           }
         }
       ]
