@@ -11,13 +11,13 @@ module.exports = defineConfig({
           urlPattern: new RegExp('^https://api.weatherapi.com/v1/'),
           handler: 'NetworkFirst',
           options: {
-            networkTimeoutSeconds: 20,
-            cacheName: 'api-cache',
+            cacheName: 'api-weather-cache',
             cacheableResponse: {
               statuses: [0, 200]
             },
             expiration: {
-              maxAgeSeconds: 600
+              maxAgeSeconds: 600,
+              maxEntries: 10
             },
           }
         }
