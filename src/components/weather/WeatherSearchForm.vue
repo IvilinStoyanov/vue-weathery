@@ -28,7 +28,6 @@ export default defineComponent({
 
         const submitForm = () => {
             emit('search-country', countryTitle.value);
-
         }
 
         return {

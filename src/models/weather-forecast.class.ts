@@ -51,6 +51,9 @@ const defaultCurrentForecast: CurrentForecast = {
   feelslike_c: 0,
   feelslike_f: 0,
   condition: defaultCondition,
+  wind_mph: 0,
+  pressure_mb: 0,
+  uv: 0
 };
 
 const defaultLocationForecast: LocationForecast = {
@@ -76,6 +79,9 @@ export class CurrentForecastClass {
   feelslike_c: number;
   feelslike_f: number;
   condition: ConditionClass;
+  wind_mph: number;
+  pressure_mb: number;
+  uv: number;
 
   constructor(data: CurrentForecast = defaultCurrentForecast) {
     this.temp_c = data.temp_c;
@@ -83,6 +89,9 @@ export class CurrentForecastClass {
     this.feelslike_c = data.feelslike_c;
     this.feelslike_f = data.feelslike_f;
     this.condition = new ConditionClass(data.condition);
+    this.wind_mph = data.wind_mph;
+    this.pressure_mb = data.pressure_mb;
+    this.uv = data.uv;
   }
 }
 

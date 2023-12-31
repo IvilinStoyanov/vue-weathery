@@ -10,6 +10,9 @@ export interface CurrentForecast {
     feelslike_c: number;
     feelslike_f: number;
     condition: Condition;
+    wind_mph: number;
+    pressure_mb: number;
+    uv: number;
 }
 
 
