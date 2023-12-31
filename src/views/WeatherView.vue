@@ -1,8 +1,7 @@
 <template>
   <base-layout :title="'Weathery'">
     <template v-slot:content>
-      <weather-search-form @searchCountry="searchCountry"></weather-search-form>
-      <loader-layout :isLoading="loading"> </loader-layout>
+      <weather-search-form @searchCountry="searchCountry" :loading="loading"></weather-search-form>
     </template>
   </base-layout>
 </template>
@@ -13,7 +12,6 @@ import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 
 import WeatherSearchForm from '../components/weather/WeatherSearchForm.vue';
-import LoaderLayout from '../components/shared/LoaderLayout.vue';
 import * as fromWeatherActions from '../store/weather/actions';
 
 export default defineComponent({
@@ -37,7 +35,6 @@ export default defineComponent({
     };
   },
   components: {
-    LoaderLayout,
     WeatherSearchForm
   },
 });
