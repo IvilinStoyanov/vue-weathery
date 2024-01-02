@@ -1,14 +1,8 @@
-// loader.ts
-
 import { Module, ActionTree, MutationTree, GetterTree } from 'vuex';
+import { RootState } from '..';
 
-// Define the loader state interface
 export interface LoaderState {
   isLoading: boolean;
-}
-
-interface RootState {
-  loader: LoaderState;
 }
 
 const state: LoaderState = {

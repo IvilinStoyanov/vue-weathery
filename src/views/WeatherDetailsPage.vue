@@ -25,7 +25,6 @@ export default defineComponent({
 
         onMounted(async () => {
             parsedWeatherData.value = store.getters.getWeatherData;
-            console.log(parsedWeatherData.value);
 
             await nextTick();
 
@@ -35,7 +34,7 @@ export default defineComponent({
         });
 
         const isEmptyWeatherData = computed(() => {
-            return Object.keys(parsedWeatherData.value).length === 0;
+            return parsedWeatherData.value.location.lon === 0;
         });
 
         return {

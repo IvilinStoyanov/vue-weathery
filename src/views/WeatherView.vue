@@ -12,7 +12,7 @@ import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 
 import WeatherSearchForm from '../components/weather/WeatherSearchForm.vue';
-import * as fromWeatherActions from '../store/weather/actions';
+import * as fromWeather from '../store/weather/weather.actions';
 
 export default defineComponent({
   name: "WeatherView",
@@ -22,7 +22,7 @@ export default defineComponent({
 
 
     const searchCountry = (countryTitle: string) => {
-      store.dispatch(fromWeatherActions.FETCH_WEATHER_DATA, { country: countryTitle, days: 3 }).then(() => {
+      store.dispatch(fromWeather.FETCH_WEATHER_DATA, { country: countryTitle, days: 3 }).then(() => {
         router.push('/weather-details');
       });
     };
@@ -39,4 +39,3 @@ export default defineComponent({
   },
 });
 </script>
-../store/weather.actions.type

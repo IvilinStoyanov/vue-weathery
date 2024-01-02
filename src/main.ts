@@ -3,6 +3,8 @@ import App from "./App.vue";
 import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
+import './interceptors/axious-interceptor';
+
 
 import { IonicVue } from "@ionic/vue";
 import BaseLayoutVue from "./components/BaseLayout.vue";
@@ -27,8 +29,6 @@ import "@ionic/vue/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
-
-import './interceptors/axious-interceptor';
 
 const app = createApp(App).use(IonicVue).use(store).use(router);
 
