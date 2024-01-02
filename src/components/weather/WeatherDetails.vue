@@ -1,26 +1,31 @@
 <template>
     <div class="page-background">
         <div class="weather-details-container">
-            <ion-card-content className="ion-text-center">
-                <div className="ion-margin-top">
+            <ion-card-content class="ion-text-center">
+                <div class="ion-margin-top">
                     <ion-img alt="condition" :src="weatherData.current.condition.icon"
                         class="current-weather-condition-icon" />
-                    <ion-text color="dark">
+                    <ion-text color="medium">
                         <h1>{{ weatherData.current.condition.text }}</h1>
                     </ion-text>
                     <ion-text color="medium">
                         <p>{{ new Date(weatherData.location.localtime).toDateString() }}</p>
                     </ion-text>
                 </div>
-                <ion-card-title className="ion-margin-top">{{ weatherData.current.temp_c }} °C</ion-card-title>
-                <ion-grid className="ion-margin-top">
+                <ion-card-title class="ion-margin-top" color="medium">
+                    <div class="temp-degree">
+                    <span class="temp">{{Math.floor(weatherData.current.temp_c)}}</span>
+                    <span class="degree">°C</span>
+                     </div>
+                </ion-card-title>
+                <ion-grid class="ion-margin-top">
                     <ion-row>
-                        <WeatherProperty :type="'wind'" :currentWeather="weatherData" />
-                        <WeatherProperty :type="'feelsLike'" :currentWeather="weatherData" />
+                        <WeatherProperty :type="'wind'" :value="weatherData.current?.wind_mph" />
+                        <WeatherProperty :type="'feelsLike'" :value="Math.floor(weatherData.current?.feelslike_c)" />
                     </ion-row>
-                    <ion-row className="ion-margin-top">
-                        <WeatherProperty :type="'indexUV'" :currentWeather="weatherData" />
-                        <WeatherProperty :type="'pressure'" :currentWeather="weatherData" />
+                    <ion-row class="ion-margin-top">
+                        <WeatherProperty :type="'indexUV'" :value="weatherData.current?.uv" />
+                        <WeatherProperty :type="'pressure'" :value="weatherData.current?.pressure_mb" />
                     </ion-row>
                 </ion-grid>
             </ion-card-content>
@@ -65,16 +70,30 @@ export default defineComponent({
 .weather-details-container {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    height: 100%;
 }
+
+.temp-degree {
+    display: flex;
+    justify-content: center;
+}
+
+.temp {
+    font-size: 6rem;
+}
+
+.degree {
+    font-size: 2rem;
+    padding-top: 10px;
+}
+
 
 .current-weather-condition-icon {
     height: 110px;
 }
 
+
 .page-background {
-    background-image: url('../../assets/backgrounds/weather-bg.png');
+    background-image: url('../../assets/backgrounds/app-bg.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;

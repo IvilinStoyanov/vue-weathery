@@ -5,25 +5,24 @@
                 <ion-icon :icon="property.icon" color="medium" style="font-size: 2rem;"></ion-icon>
             </ion-col>
             <ion-col :size="'9'">
-                <ion-card-subtitle>{{ property.label }}</ion-card-subtitle>
-                <ion-note>{{ property.value }}</ion-note>
+                <ion-card-subtitle color="medium">{{ property.label }}</ion-card-subtitle>
+                <ion-note color="medium">{{ property.value }}</ion-note>
             </ion-col>
         </ion-row>
     </ion-col>
 </template>
   
 <script lang="ts">
-import { ref, computed, watch, PropType, ComputedRef, defineComponent } from 'vue';
+import { ref, computed, watch, ComputedRef, defineComponent } from 'vue';
 import { IonCol, IonRow, IonCardSubtitle, IonNote, IonIcon } from "@ionic/vue";
 import { leafOutline, thermometerOutline, sunnyOutline, pulseOutline } from 'ionicons/icons';
 
-import { IWeatherForecast } from '@/models/weather-forecast.interface';
 import { IWeatherProperty } from '@/models/weather-property.interface';
 
 export default defineComponent({
     props: {
         type: String,
-        currentWeather: Object as PropType<IWeatherForecast>,
+        value: Number,
     },
     setup(props) {
         const property = ref<IWeatherProperty>({ icon: '', alt: '', label: '', value: '' });
@@ -34,25 +33,25 @@ export default defineComponent({
                     icon: leafOutline,
                     alt: "leaf outline",
                     label: "Wind",
-                    value: `${props.currentWeather?.current?.wind_mph} mph`,
+                    value: `${props.value} mph`,
                 },
                 feelsLike: {
                     icon: thermometerOutline,
                     alt: "feels like",
                     label: "Feels like",
-                    value: `${props.currentWeather?.current?.feelslike_c} °C`,
+                    value: `${props.value} °C`,
                 },
                 indexUV: {
                     icon: sunnyOutline,
                     alt: "index uv",
                     label: "Index UV",
-                    value: props.currentWeather?.current?.uv,
+                    value: props.value,
                 },
                 pressure: {
                     icon: pulseOutline,
                     alt: "pressure",
                     label: "Pressure",
-                    value: `${props.currentWeather?.current?.pressure_mb} mbar`,
+                    value: `${props.value} mbar`,
                 },
             } as const;
         }) as ComputedRef<Record<string, IWeatherProperty>>;

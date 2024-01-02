@@ -1,6 +1,6 @@
 <template>
   <ion-header>
-    <ion-toolbar>
+    <ion-toolbar color="primary">
       <!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
       <ion-buttons slot="start" v-if="pageDefaultBackLink">
         <ion-back-button :default-href="pageDefaultBackLink"></ion-back-button>
