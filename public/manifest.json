@@ -1,7 +1,7 @@
 {
     "name": "weathery",
     "short_name": "weathery",
-    "theme_color": "#723892",
+    "theme_color": "#705d94",
     "icons": [
       {
         "src": "./img/icons/android-chrome-192x192.png",
@@ -28,5 +28,5 @@
     ],
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#723892"
+    "background_color": "#705d94"
   }
