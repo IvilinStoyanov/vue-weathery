@@ -3,25 +3,25 @@ const { defineConfig } = require("@vue/cli-service");
 module.exports = defineConfig({
   transpileDependencies: true,
   pwa: {
-    workboxPluginMode: 'GenerateSW',
+    workboxPluginMode: "GenerateSW",
     workboxOptions: {
-      navigateFallback: '/index.html',
+      navigateFallback: "/index.html",
       runtimeCaching: [
         {
-          urlPattern: new RegExp('^https://api.weatherapi.com/v1/'),
-          handler: 'NetworkFirst',
+          urlPattern: new RegExp("^https://api.weatherapi.com/v1/"),
+          handler: "NetworkFirst",
           options: {
-            cacheName: 'api-weather-cache',
+            cacheName: "api-weather-cache",
             cacheableResponse: {
-              statuses: [0, 200]
+              statuses: [0, 200],
             },
             expiration: {
               maxAgeSeconds: 600,
-              maxEntries: 10
+              maxEntries: 10,
             },
-          }
-        }
-      ]
-    }
-  }
+          },
+        },
+      ],
+    },
+  },
 });

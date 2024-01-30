@@ -2,11 +2,11 @@
     <ion-col :size="'6'">
         <ion-row class="ion-justify-content-center ion-align-items-center">
             <ion-col :size="'3'">
-                <ion-icon :icon="property.icon" color="medium" style="font-size: 2rem;"></ion-icon>
+                <ion-icon :icon="property.icon" color="dark" style="font-size: 2rem;"></ion-icon>
             </ion-col>
             <ion-col :size="'9'">
-                <ion-card-subtitle color="medium">{{ property.label }}</ion-card-subtitle>
-                <ion-note color="medium">{{ property.value }}</ion-note>
+                <ion-card-subtitle color="dark">{{ property.label }}</ion-card-subtitle>
+                <ion-note color="dark">{{ property.value }}</ion-note>
             </ion-col>
         </ion-row>
     </ion-col>
