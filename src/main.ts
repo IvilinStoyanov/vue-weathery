@@ -1,6 +1,5 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
 import './interceptors/axious-interceptor';
@@ -30,6 +29,7 @@ import "@ionic/vue/css/display.css";
 /* Theme variables */
 import "./theme/variables.css";
 
+console.log(import.meta.env.BASE_URL);
 const app = createApp(App).use(IonicVue).use(store).use(router);
 
 app.component("base-layout", BaseLayoutVue);
