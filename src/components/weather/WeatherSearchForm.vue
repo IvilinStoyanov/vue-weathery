@@ -11,7 +11,6 @@
                     v-if="loading"></ion-spinner><span v-else>Search</span></ion-button>
         </ion-card>
     </form>
-    <h4>{{ pwaLS }}</h4>
 </template>
 
 <script lang="ts">
@@ -28,9 +27,6 @@ export default defineComponent({
     },
     emits: ["search-country"],
     setup(props, { emit }) {
-        localStorage.setItem('pwa', JSON.stringify('PWA Local Storage'));
-        const pwaLS = localStorage.getItem('pwa');
-        console.log(pwaLS);
         const countryTitle = ref("");
 
         const submitForm = () => {
@@ -40,8 +36,7 @@ export default defineComponent({
         return {
             props,
             countryTitle,
-            submitForm,
-            pwaLS
+            submitForm
         };
     },
 
