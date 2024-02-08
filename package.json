@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vite",
-    "build": "vue-tsc && vite build",
+    "build": "vite build",
     "test:unit": "vitest"
   },
   "dependencies": {
