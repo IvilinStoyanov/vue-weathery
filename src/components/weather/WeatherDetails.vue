@@ -21,20 +21,24 @@
             </ion-card-content>
         </div>
         <div>
+            <ion-row class="ion-justify-content-center">
+                <ion-icon id="open-modal" :icon="reorderTwoOutline" color="light" style="font-size: 3rem;"></ion-icon>
+            </ion-row>
 
-
-            <ion-card class="n-margin border-bottom-r-none">
-                <ion-grid>
-                    <ion-row>
-                        <WeatherProperty :type="'wind'" :value="weatherData.current?.wind_mph" />
-                        <WeatherProperty :type="'feelsLike'" :value="Math.floor(weatherData.current?.feelslike_c)" />
-                    </ion-row>
-                    <ion-row class="ion-margin-top">
-                        <WeatherProperty :type="'indexUV'" :value="weatherData.current?.uv" />
-                        <WeatherProperty :type="'pressure'" :value="weatherData.current?.pressure_mb" />
-                    </ion-row>
-                </ion-grid>
-            </ion-card>
+            <ion-modal trigger="open-modal" :show-backdrop="false" :initialBreakpoint="0.25" :breakpoints="[0.25, 0.5]">
+                <ion-card class="n-margin border-bottom-r-none">
+                    <ion-grid>
+                        <ion-row>
+                            <WeatherProperty :type="'wind'" :value="weatherData.current?.wind_mph" />
+                            <WeatherProperty :type="'feelsLike'" :value="Math.floor(weatherData.current?.feelslike_c)" />
+                        </ion-row>
+                        <ion-row class="ion-margin-top">
+                            <WeatherProperty :type="'indexUV'" :value="weatherData.current?.uv" />
+                            <WeatherProperty :type="'pressure'" :value="weatherData.current?.pressure_mb" />
+                        </ion-row>
+                    </ion-grid>
+                </ion-card>
+            </ion-modal>
         </div>
 
     </div>
@@ -43,6 +47,7 @@
 <script lang="ts">
 import { PropType, defineComponent } from "vue";
 import {
+    IonModal,
     IonCard,
     IonGrid,
     IonRow,
@@ -50,9 +55,11 @@ import {
     IonCardTitle,
     IonText,
     IonImg,
+    IonIcon
 } from "@ionic/vue";
 import { IWeatherForecast } from "@/models/weather-forecast.interface";
 import WeatherProperty from "@/components/weather/WeatherProperty.vue";
+import { reorderTwoOutline } from 'ionicons/icons';
 
 export default defineComponent({
     name: "WeatherDetails",
@@ -63,6 +70,7 @@ export default defineComponent({
         },
     },
     components: {
+        IonModal,
         IonCard,
         IonGrid,
         IonRow,
@@ -70,8 +78,14 @@ export default defineComponent({
         IonCardTitle,
         IonText,
         IonImg,
-        WeatherProperty,
+        IonIcon,
+        WeatherProperty
     },
+    setup() {
+        return {
+            reorderTwoOutline
+        }
+    }
 });
 </script>
 

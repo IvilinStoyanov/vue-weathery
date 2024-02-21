@@ -36,7 +36,7 @@ export default defineComponent({
         return {
             props,
             countryTitle,
-            submitForm
+            submitForm,
         };
     },
 
